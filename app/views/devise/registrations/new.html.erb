@@ -1,0 +1,52 @@
+<div class='flex flex-col gap-6 justify-center items-center bg-base p-6'>
+<h2 class="text-lg font-medium mb-4 text-white">Sign up</h2>
+
+<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+  <%= render "devise/shared/error_messages", resource: resource %>
+
+   <div class="mb-4">
+    <%= f.label :email, class: "block text-sm font-medium leading-5 text-white" %>
+    <%= f.email_field :email, class: "form-input py-3 px-4 leading-5 rounded-md transition duration-150 ease-in-out", autofocus: true, autocomplete: "email" %>
+  </div>
+
+  <div class="mb-4">
+    <%= f.label :username, class: "block text-sm font-medium leading-5 text-white" %>
+    <%= f.text_field :username, class: "form-input py-3 px-4 leading-5 rounded-md transition duration-150 ease-in-out", autofocus: true, autocomplete: "username" %>
+  </div>
+
+  <div class="mb-4">
+    <%= f.label :password, class: "block text-sm font-medium leading-5 text-white" %>
+    <% if @minimum_password_length %>
+    <em class=" block text-xs font-medium text-white">(<%= @minimum_password_length %> characters minimum)</em>
+    <% end %>
+    <%= f.password_field :password, class: "form-input py-3 px-4 leading-5 rounded-md transition duration-150 ease-in-out", autocomplete: "new-password" %>
+  </div>
+  <div class="mb-4">
+    <%= f.label :password_confirmation, class: "block text-sm font-medium leading-5 text-white" %><br />
+    <%= f.password_field :password_confirmation, class: "form-input py-3 px-4 leading-5 rounded-md transition duration-150 ease-in-out", autocomplete: "new-password" %>
+  </div>
+   <div class="mb-4">
+  <%= f.label :age, class: "block text-sm font-medium leading-5 text-white" %>
+  <%= f.number_field :age, class: "form-input py-3 px-4 leading-5 rounded-md transition duration-150 ease-in-out", autofocus: true, autocomplete: "age" %>
+</div>
+ <div class="mb-4">
+  <%= f.label :height, class: "block text-sm font-medium leading-5 text-white" %>
+  <%= f.number_field :height, class: "form-input py-3 px-4 leading-5 rounded-md transition duration-150 ease-in-out",  autofocus: true, autocomplete: "height" %>
+</div>
+ <div class="mb-4">
+  <%= f.label :weight, class: "block text-sm font-medium leading-5 text-white" %>
+  <%= f.number_field :weight, class: "form-input py-3 px-4 leading-5 rounded-md transition duration-150 ease-in-out",  autofocus: true, autocomplete: "weight" %>
+</div>
+<div class="mb-4">
+  <%= f.label :gender, class: "block text-sm font-medium leading-5 text-white" %>
+  <%= f.select :gender, options_for_select(['male', 'female', 'other']), include_blank: true %>
+</div>
+
+ <div class="actions flex justify-between">
+    <%= f.submit "Sign up", class: "bg-base hover:bg-blue-600 text-white font-medium py-2 px-4 rounded-md" %>
+    <%= render "devise/shared/links" %>
+  </div>
+<% end %>
+
+
+</div>
